@@ -8,14 +8,10 @@ export const getFilterContacts = store => {
 
   const normalizedFilter = filter.toLowerCase();
 
-  const filteredContacts = contacts.filter(({ title, author }) => {
-    const normalizedTitle = title.toLowerCase();
-    const normalizedAuthor = author.toLowerCase();
+  const filteredContacts = contacts.filter(({ name }) => {
+    const normalizedName = name.toLowerCase();
 
-    return (
-      normalizedAuthor.includes(normalizedFilter) ||
-      normalizedTitle.includes(normalizedFilter)
-    );
+    return normalizedName.includes(normalizedFilter);
   });
 
   return filteredContacts;
